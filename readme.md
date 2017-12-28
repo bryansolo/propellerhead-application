@@ -31,11 +31,11 @@ Then in a browser, navigate to [http://localhost:3000](http://localhost:3000)
 
 ## Response from Bryan
 
-I built an angular1 based UI because that's what I can iterate in fastest. I used a filesystem database called nedb. It had no concept of schemas or models so I kind-of home-rolled my own validation - but good input sanitization is still missing (see below in list of things I hate) so don't go live with this ;)
-I used node and express because they're insanely easy to spin up quickly which is what I required for this exercise. 
-You will see the GET API can accept queries but I don't use it - one iteration of the app did and I just left it so that it can be built upon.
-To sort the customer list by an attribute click on the header for that attribute. You can click again for descending
-Don't be alarmed: I got names from LinkedIn, emails are made up, and phone numbers are all different Pizza Huts in NZ. Pizzaaaaaaaa!
+* I built an angular1 based UI because that's what I can iterate in fastest. I used a filesystem database called nedb. It had no concept of schemas or models so I kind-of home-rolled my own validation - but good input sanitization is still missing (see below in list of things I hate) so don't go live with this ;)
+* I used node and express because they're insanely easy to spin up quickly which is what I required for this exercise. 
+* You will see the GET API can accept queries but I don't use it - one iteration of the app did and I just left it so that it can be built upon.
+* To sort the customer list by an attribute click on the header for that attribute. You can click again for descending.
+* Don't be alarmed: I got names from LinkedIn, emails are made up, and phone numbers are all different Pizza Huts in NZ. Pizzaaaaaaaa!
 
 Things I still hate:
 
@@ -46,6 +46,7 @@ Things I still hate:
 * No enum type for attributes like 'Status'. A better db and affiliated framework would've helped with this but I wanted to be agile and nedb is the lightweight tool I needed
 * No build system added because I didn't have time
 * No tests written because I didn't have time
+* The UI does not currently handle server errors (400 or 500) at all, much less elegantly. A malformed email will just not save successfully
 
 
 Thanks for the fun assignment. Hope you like what you see and that we can move forward with the application process. Cheers!
