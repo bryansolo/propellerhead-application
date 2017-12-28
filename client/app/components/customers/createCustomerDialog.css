@@ -1,0 +1,25 @@
+#create-customer-dialog {
+    min-width: 70%;
+}
+
+#create-customer-dialog .column-title {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#create-customer-dialog .input-label-text {
+    padding-top: .5em;
+}
+
+#create-customer-dialog .note .delete-note {
+    visibility: hidden;
+}
+
+#create-customer-dialog .note:hover .delete-note {
+    visibility: visible;
+}
+
+#create-customer-dialog .delete-note {
+    border-radius: 50%;
+    cursor: pointer;
+}

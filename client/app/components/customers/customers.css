@@ -1,0 +1,39 @@
+#filter-nav {
+    border-right: solid black 1px;
+}
+
+#filter-section {
+    border-bottom: solid black 1px;
+}
+
+#filter-label {
+    padding-top: 1em;
+    font-weight: bold;
+}
+
+#customers .status-label {
+    font-weight: bold;
+    margin-bottom: .5em;
+}
+
+#customers .header {
+    font-weight: bold;
+    cursor: pointer;
+    outline:none;
+}
+
+#customers .header:hover {
+    opacity: 0.5;
+}
+
+#customers .attribute {
+    padding-top: .5em;
+}
+
+#customers .customer .hover-button {
+    visibility: hidden;
+}
+
+#customers .customer:hover .hover-button {
+    visibility: visible;
+}

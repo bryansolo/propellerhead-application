@@ -1,0 +1,101 @@
+<md-dialog id="create-customer-dialog" layout-padding>
+    
+    <span class="dialog-title">Edit customer</span>
+
+    <md-divider style="padding:0"></md-divider>
+
+    <md-dialog-content class="dialog-content" layout>
+        
+        <div layout="column" flex="40" layout-padding>
+            
+            <div class="column-title">Info</div>
+            
+            <div class="first-name" layout>
+                <div class="input-label" flex="20">
+                    <div class="input-label-text">First name:</div>
+                </div>
+                <md-input-container flex class="no-errors-spacer">
+                    <label>First name</label>
+                    <input type="text" ng-model="Create.customer.firstName"/>
+                </md-input-container>
+            </div>
+
+            <div class="last-name" layout>
+                <div class="input-label" flex="20">
+                    <div class="input-label-text">Last name:</div>
+                </div>
+                <md-input-container flex class="no-errors-spacer">
+                    <label>Last name</label>
+                    <input type="text" ng-model="Create.customer.lastName"/>
+                </md-input-container>
+            </div>
+
+            <div class="phone" layout>
+                <div class="input-label" flex="20">
+                    <div class="input-label-text">Phone number:</div>
+                </div>
+                <md-input-container flex class="no-errors-spacer">
+                    <label>Phone number</label>
+                    <input type="text" ng-model="Create.customer.phone"/>
+                </md-input-container>
+            </div>
+
+            <div class="email" layout>
+                <div class="input-label" flex="20">
+                    <div class="input-label-text">Email:</div>
+                </div>
+                <md-input-container flex class="no-errors-spacer">
+                    <label>Email</label>
+                    <input type="text" ng-model="Create.customer.email"/>
+                </md-input-container>
+            </div>
+
+            <div class="choose-status" layout="column">
+                <span class="input-label">Status:</span>
+                <md-input-container>
+                  <label>Status</label>
+                  <md-select ng-model="Create.customer.status">
+                    <md-option ng-value="null"><em>---</em></md-option>
+                    <md-option ng-repeat="status in Create.statuses" ng-value="status" class="capitalize">
+                      {{status}}
+                    </md-option>
+                  </md-select>
+                </md-input-container>
+            </div>
+            
+        </div>
+        
+        <div layout="column" flex="60" layout-padding>
+        
+            <div class="column-title">Notes</div>
+            
+            <div class="no-notes" ng-show="Create.customer.notes.length === 0">
+                No notes attached to this customer. Add a note using the button below
+            </div>
+            
+            <div class="note" ng-repeat="note in Create.customer.notes" layout>
+                
+                <md-input-container flex class="no-errors-spacer">
+                    <input type="text" ng-model="note.body"/>
+                </md-input-container>
+                
+                <md-button class="md-icon-button md-warn md-raised delete-note fa fa-trash" ng-click="Create.deleteNote(note)"></md-button>
+                
+            </div>
+            
+            <div layout>
+                <md-button class="add-note md-primary md-raised" ng-click="Create.addNote()">New note</md-button>
+                <span flex></span>
+            </div>
+        
+        </div>
+        
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row" class="dialog-actions">
+        <span flex></span>
+        <md-button class="md-primary md-raised" ng-click="Create.save(Create.customer)" ng-disabled="!Create.validCustomer(Create.customer)">Save</md-button>
+        <md-button class="md-warn md-raised" ng-click="Create.cancel()">Cancel</md-button>
+    </md-dialog-actions>
+    
+</md-dialog>

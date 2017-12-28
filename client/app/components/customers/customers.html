@@ -1,0 +1,90 @@
+<div id="customers" layout flex layout-padding>
+    
+    <div layout="column" flex="20" layout-padding id="filter-nav">
+        <div layout id="filter-section">
+            <span id="filter-label">Filter by:</span>
+        </div>
+        
+        <div class="text-search">
+            <md-input-container class="no-errors-spacer">
+                <label>First Name</label>
+                <input type="text" ng-model="Customers.filter.firstName"/>
+            </md-input-container>
+        </div>
+        
+        <div class="text-search">
+            <md-input-container class="no-errors-spacer">
+                <label>Last Name</label>
+                <input type="text" ng-model="Customers.filter.lastName"/>
+            </md-input-container>
+        </div>
+        
+        <div class="text-search">
+            <md-input-container class="no-errors-spacer">
+                <label>Phone</label>
+                <input type="text" ng-model="Customers.filter.phone"/>
+            </md-input-container>
+        </div>
+        
+        <div class="text-search">
+            <md-input-container class="no-errors-spacer">
+                <label>Email</label>
+                <input type="text" ng-model="Customers.filter.email"/>
+            </md-input-container>
+        </div>
+        
+        <div>
+            <div class="status-label">Status:</div>
+            <md-radio-group ng-model="Customers.filter.status">
+                <md-radio-button ng-repeat="status in Customers.statuses" ng-value="status" class="md-primary capitalize">
+                    {{status}}
+                </md-radio-button>
+            </md-radio-group>
+        </div>
+        
+        <md-button class="md-accent md-raised" ng-click="Customers.filter = {}">Remove Filter</md-button>
+        
+    </div>
+    
+    <div layout="column" flex>
+        
+        <div class="header-bar" layout>
+            <span flex></span>
+            <md-button class="md-accent md-raised" ng-click="Customers.create()">Add Customer</md-button>
+        </div>
+        
+        <md-content layout-padding>
+            
+            <div class="customer-headers" layout layout-padding>
+                
+                <div class="header" ng-repeat="header in Customers.headers" flex="{{header.flex}}" ng-click="Customers.toggleSort(header)">
+                    {{header.name}} 
+                    <i class="fa" ng-class="{'fa-chevron-up': (Customers.sorter === header.attribute && !Customers.reverseSort), 'fa-chevron-down': (Customers.sorter === header.attribute && Customers.reverseSort)}">
+                    </i>
+                </div>
+                
+                <span flex></span>
+                
+            </div>
+            
+            <div class="customers" layout-padding>
+                
+                <div class="customer" ng-repeat="customer in Customers.results | filter: Customers.filter | orderBy: Customers.sorter:Customers.reverseSort" layout>
+                    <div class="capitalize attribute" flex="20">{{ customer.firstName }} {{ customer.lastName }} </div>
+                    <div class="attribute" flex="15">{{ customer.createdAt | date }}</div>
+                    <div class="capitalize attribute" flex="15">{{ customer.status }}</div>
+                    <div class="attribute" flex="15">{{ customer.phone }}</div>
+                    <div class="attribute" flex="20">{{ customer.email }}</div>
+                    <div flex>
+                        <md-button class="hover-button md-icon-button md-primary md-raised fa fa-pencil" ng-click="Customers.create(customer)"></md-button>
+                        <md-button class="hover-button md-icon-button md-warn md-raised fa fa-trash" ng-click="Customers.deletePerson(customer)"></md-button>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </md-content>
+        
+    </div>
+    
+</div>

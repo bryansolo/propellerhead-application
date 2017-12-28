@@ -1,0 +1,16 @@
+{
+  "name": "propellerhead",
+  "version": "0.0.1",
+  "description": "Interview demo app for Propellerhead",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js"
+  },
+  "author": "bsolo",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.15.3",
+    "nedb": "^1.8.0"
+  }
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Propellerhead</title>
+
+    <link rel="stylesheet" type="text/css" href="dependencies/angular-material.min.css">
+    <link rel="stylesheet" href="dependencies/font-awesome-4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="app/app.css">
+    <link rel="stylesheet" type="text/css" href="app/components/customers/customers.css">
+    <link rel="stylesheet" type="text/css" href="app/components/customers/createCustomerDialog.css">
+    
+</head>
+<body ng-app="propellerhead">
+
+    <div ui-view id="wrapper" flex layout="column"></div>
+    
+    <!-- wish i had time to add a build system as hard-coding these manually is painful, but alas -->
+    <script type="text/javascript" src="dependencies/angular.min.js"></script>
+    <script type="text/javascript" src="dependencies/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="dependencies/angular-material.min.js"></script>
+    <script type="text/javascript" src="dependencies/angular-messages.min.js"></script>
+    <script type="text/javascript" src="dependencies/angular-aria.min.js"></script>
+    <script type="text/javascript" src="dependencies/angular-animate.min.js"></script>
+    
+    <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="app/app.constants.js"></script>
+    <script type="text/javascript" src="app/routes.js"></script>
+    <script type="text/javascript" src="app/components/navbar/navbar.controller.js"></script>
+    <script type="text/javascript" src="app/components/customers/customers.controller.js"></script>
+    <script type="text/javascript" src="app/components/customers/createCustomerDialog.controller.js"></script>
+    <script type="text/javascript" src="app/components/customers/customers.constants.js"></script>
+    <script type="text/javascript" src="app/services/customers.factory.js"></script>
+    
+</body>
+</html>
